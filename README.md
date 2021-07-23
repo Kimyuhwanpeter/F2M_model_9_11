@@ -5,6 +5,8 @@
 * 나이에 대한 loss 새롭게 구성 
 * Same Age loss=MAX(0,𝑒^(−dis 2.77/100) )  , 감소함수
 * Different Age loss=ln⁡〖(MAX(1,dis)+𝜖)〗
+![f1](https://github.com/Kimyuhwanpeter/F2M_model_9_11/blob/main/f1.png)
+
 <br/>
 
 ## F2M_model_V10

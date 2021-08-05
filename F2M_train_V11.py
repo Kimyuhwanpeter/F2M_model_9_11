@@ -166,10 +166,10 @@ def cal_loss(A2B_G_model, B2A_G_model, A_discriminator, B_discriminator,
         d_loss = Adver_loss
 
     g_grads = g_tape.gradient(g_loss, A2B_G_model.trainable_variables + B2A_G_model.trainable_variables)
-    d_grads = d_tape.gradient(d_loss, B_discriminator.trainable_variables)
+    d_grads = d_tape.gradient(d_loss, A_discriminator.trainable_variables + B_discriminator.trainable_variables)
 
     g_optim.apply_gradients(zip(g_grads, A2B_G_model.trainable_variables + B2A_G_model.trainable_variables))
-    d_optim.apply_gradients(zip(d_grads, B_discriminator.trainable_variables))
+    d_optim.apply_gradients(zip(d_grads, A_discriminator.trainable_variables + B_discriminator.trainable_variables))
 
     return g_loss, d_loss
 
